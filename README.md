@@ -210,13 +210,16 @@ supaya patch basi tidak menumpuk.
    `data/patches.json`, `lib/` hanya kalau build ulang dilakukan di server.
    Jangan unggah `.venv/`, `__pycache__/`, `data/sabda/` (cache scrape, ~64 MB),
    `data/reports/`, `.DS_Store`.
-2. cPanel → **Setup Python App** → Python 3.11 → application root = folder ini,
-   application startup file = `passenger_wsgi.py`.
-3. cPanel membuat virtualenv sendiri; pasang dependensi:
-   `pip install -r requirements.txt` (lewat menu "Run Pip Install" atau
-   `source ~/virtualenv/alkitab-api/3.11/bin/activate`).
-4. Sesuaikan path `INTERP` di `passenger_wsgi.py` kalau nama/versi virtualenv cPanel
-   berbeda (baris `~/virtualenv/alkitab-api/3.11/bin/python3`).
+2. cPanel → **Setup Python App** → Python 3.11+ → application root = folder ini
+   (mis. `public_html/alkitabdigital.my.id/api`), application startup file =
+   `passenger_wsgi.py`.
+3. cPanel membuat virtualenv sendiri di `~/virtualenv/<app root>/<versi>/`; pasang
+   dependensi: `pip install -r requirements.txt` (menu "Run Pip Install", atau
+   `source ~/virtualenv/<app root>/<versi>/bin/activate`).
+4. Tidak ada path interpreter yang perlu diedit. `passenger_wsgi.py` hanya
+   `from app import app as application`; Passenger yang memilih venv sesuai
+   langkah 2. Kalau Flask tidak ketemu, berarti aplikasi cPanel belum diarahkan
+   ke venv yang benar — perbaiki di menu Setup Python App, bukan di kode.
 5. Pastikan `data/output/` bisa ditulis user cPanel (dibutuhkan saat build ulang).
 6. Build di server (SSH), lalu cek `https://domain-anda.com/api/health`.
 
