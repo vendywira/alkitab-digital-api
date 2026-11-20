@@ -1,0 +1,18 @@
+{
+  "translation": {
+    "id": "tb",
+    "name": "Terjemahan Baru",
+    "abbreviation": "TB",
+    "language": "id"
+  },
+  "content": {
+    "version": 4,
+    "last_updated": "2026-11-20T20:45:51+00:00",
+    "zip_url": "/api/download/alkitab_tb_v4.zip",
+    "zip_size": 2181979,
+    "zip_checksum": "sha256:42bf6ff5350431e4cfae102b28955079197b25d77539674e9a963882f88afbdd",
+    "db_filename": "alkitab_content.db",
+    "db_schema_version": 2
+  },
+  "audio_packages": []
+}
