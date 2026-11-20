@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Hasil build & cache — dibuat ulang oleh pipeline (README §5)
+data/output/
+data/json/
+data/sabda/
+data/reports/

@@ -1,0 +1,16 @@
+# Hanya data/output/ yang boleh diakses web (kontrak: alkitab-pwa/docs/backend.md §2.2).
+Options -Indexes
+
+# sumber & laporan tidak untuk publik
+RedirectMatch 404 ^/lib/.*$
+RedirectMatch 404 ^/docs/.*$
+RedirectMatch 404 ^/data/(json|reports)/.*$
+RedirectMatch 404 ^/(build_content|clean_json|app|books|passenger_wsgi|test_pipeline)\.py$
+RedirectMatch 404 ^/schema_content\.sql$
+RedirectMatch 404 ^/requirements\.txt$
+RedirectMatch 404 ^/\.
+RedirectMatch 404 ^/\.env
+
+<FilesMatch "\.(py|sql|md|log)$">
+  Require all denied
+</FilesMatch>
